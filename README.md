@@ -11,5 +11,5 @@ solve an interesting real-world problem.
                               vector machine algorithm yields an accuracy of roughly 97% on the test set.
 * **ca_housing**: California housing predictions using a wide-variety of models and cross-validation techniques.
 
-### More in depth discussions may be found with in the respective directories.
+#### More in depth discussions may be found within the respective directories.
                   
