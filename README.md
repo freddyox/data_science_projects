@@ -1,5 +1,5 @@
 # Data Science Projects
-Each directory within data_science_projects/ represents a project in which different tools or algorithms are used to 
+Each directory within **data_science_projects/** represents a project in which different tools or algorithms are used to 
 solve an interesting real-world problem.
 
 ## Directories
