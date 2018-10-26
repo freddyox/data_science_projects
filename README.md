@@ -1,4 +1,4 @@
-# Data science projects
+# Data Science Projects
 
 1. Classification:
    1. Jupyter notebook containing the analysis-chain for the Titanic competition
