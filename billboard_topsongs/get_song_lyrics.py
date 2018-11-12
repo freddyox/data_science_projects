@@ -1,4 +1,13 @@
 #! /usr/bin/python3
+
+######################################################################
+# Goal of this script:
+#
+# Scrape Genius website to extract lyrics for songs that were collected
+# using the get_top_songs.py script:
+#    -We have 2006 to 2017 available in this particular format, e.g.
+#     https://www.billboard.com/charts/year-end/2017/hot-100-songs
+
 import requests, sys
 from bs4 import BeautifulSoup
 import re, string, csv
@@ -50,7 +59,7 @@ def clean(lyrics, numbers=False, lower=False):
         output = output.lower()
         print("Lower casing too.")
 
-    # Do a small analysis
+    # Do a small analysis which is redone in the jupyter notebook for plotting
     tokens = [s.strip() for s in output.split() if s] 
     unique_words = {}
     for w in tokens:
@@ -109,7 +118,7 @@ with open('billboard_ye_topartists.csv') as csv_file:
     count = 0
     for row in csv_reader:
         yrs[count]     = row[0]
-        top100[count]   = row[1]
+        top100[count]  = row[1]
         songs[count]   = row[2]
         artists[count] = row[3]
         years.append(int(row[0]))
@@ -122,12 +131,14 @@ print("Will look for %d songs spanning the years %d-%d" % (len(songs),years[0],y
 def clean_up_artist(artist):
     """If artist has a feature, remove it
        Remove any trailing white space
+       This makes it easier to search Genuis API
     """
     if artist.find("Featuring") == -1:
         return artist.rstrip() 
     else:
         return artist[:artist.find('Featuring')].rstrip()
 
+#Simple test   
 #get_lyrics("Caroline","Amin")
     
 f = open('song_lyrics.csv','w')
@@ -139,7 +150,8 @@ for row, song in songs.items():
     if "beyonc" in artist.lower():
         artist = "beyonc"
         
-    lyrics = get_lyrics(song, artist)  # This function does not work with trailing white-space
+    # This function does not work with trailing white-space
+    lyrics = get_lyrics(song, artist)  
     yr = yrs[row]
     number = top100[row]
     line =  yr + "," + number + "," + "\"" + song + "\"," + "\"" + artist + "\"," + "\""
