@@ -10,6 +10,7 @@ solve an interesting real-world problem.
 * **text_classification_v2**: Classifying text documents into one of eight categories where a linear support 
                               vector machine algorithm yields an accuracy of roughly 97% on the test set.
 * **ca_housing**: California housing predictions using a wide-variety of models and cross-validation techniques.
+* **billboard_topsongs**: Scraped artists/songs from <a href="https://www.billboard.com/charts/year-end/2017/hot-100-songs">Billboard's year-end top 100</a>, which includes songs from 2006-2017. Scraped the lyrics from <a href="https://genius.com/">Genius</a> using their API; The text went through a cleansing routine at this stage. Explored and analyzed the text.
 
 #### More in depth discussions may be found within the respective directories.
                   
